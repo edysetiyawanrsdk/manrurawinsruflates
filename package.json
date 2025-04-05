@@ -10,7 +10,7 @@
     "check": "tsc",
     "db:push": "drizzle-kit push",
     "preinstall": "echo 'Setting up environment';", 
-    "vercel-build": "node -e \"const fs=require('fs');const path=require('path');const dir='client';if(!fs.existsSync(dir)){fs.mkdirSync(dir,{recursive:true});} const html='<!DOCTYPE html><html lang=\\\"en\\\"><head><meta charset=\\\"UTF-8\\\" /><meta name=\\\"viewport\\\" content=\\\"width=device-width, initial-scale=1.0\\\" /><title>ManruraPod</title></head><body><div id=\\\"root\\\"></div><script type=\\\"module\\\" src=\\\"/src/main.tsx\\\"></script></body></html>'; fs.writeFileSync(path.join(dir, 'index.html'), html);\" && npm run build"
+    "vercel-build": "node -e \"const fs=require('fs');const path=require('path');\n// Ensure client directory exists\nconst clientDir='client';\nif(!fs.existsSync(clientDir)){fs.mkdirSync(clientDir,{recursive:true});}\n\n// Create index.html\nconst html='<!DOCTYPE html><html lang=\\\"en\\\"><head><meta charset=\\\"UTF-8\\\" /><meta name=\\\"viewport\\\" content=\\\"width=device-width, initial-scale=1.0\\\" /><title>ManruraPod</title></head><body><div id=\\\"root\\\"></div><script type=\\\"module\\\" src=\\\"./src/main.tsx\\\"></script></body></html>';\nfs.writeFileSync(path.join(clientDir, 'index.html'), html);\n\nconsole.log('Created client/index.html successfully');\" && npm run build"
   },
   "engines": {
     "node": ">=18.0.0"
