@@ -13,8 +13,16 @@
       "dest": "dist/index.js"
     },
     {
-      "src": "/(.*)",
+      "src": "/assets/(.*)",
+      "dest": "dist/public/assets/$1"
+    },
+    {
+      "src": "/(.+\\.[a-z]+)$",
       "dest": "dist/public/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "dist/index.js"
     }
   ],
   "env": {
